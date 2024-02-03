@@ -64,7 +64,7 @@ export default function ModalCRUD({
               name="name"
               id="name"
               label="Name"
-              value={data?.tourist_name}
+              value={data?.tourist_name || ""}
               onChange={(e) => {
                 setData({
                   ...(data as TouristData),
@@ -83,7 +83,7 @@ export default function ModalCRUD({
               name="email"
               id="email"
               label="Email"
-              value={data?.tourist_email}
+              value={data?.tourist_email || ""}
               onChange={(e) => {
                 setData({
                   ...(data as TouristData),
@@ -102,7 +102,7 @@ export default function ModalCRUD({
               name="location"
               id="location"
               label="Location"
-              value={data?.tourist_location}
+              value={data?.tourist_location || ""}
               onChange={(e) => {
                 setData({
                   ...(data as TouristData),
@@ -118,10 +118,10 @@ export default function ModalCRUD({
 
         <div
           className={`flex items-center space-x-3 mt-5 ${
-            data?.id == "" ? "justify-between" : "justify-end"
+            !data?.id ? "justify-between" : "justify-end"
           }`}
         >
-          {data?.id == "" && (
+          {!data?.id && (
             <Button
               type="button"
               onClick={() => {
